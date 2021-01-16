@@ -1,5 +1,5 @@
 \errorcontextlines 999999
-\documentclass[userip,ngerman,cpalette=Peach]{lecture-fancy-paper}
+\documentclass[userip,english,cpalette=Peach]{lecture-fancy-paper}
 \usepackage[%
     sopra-listings={cpalette,numinpar},%
     sopra-tables={cpalette},%
@@ -9,6 +9,7 @@
     lithie-task-boxes={cpalette},%
     lecture-links={patchurl}%
 ]{lithie-util}
+\usepackage[style=ddmmyyyy,yearmonthsep={\thinspace.\thinspace},monthdaysep={\thinspace.\thinspace}]{datetime2}
 
 \solLoadLanguage{cpp}
 \LoadBoxStyle{limerence}
@@ -23,17 +24,28 @@
 
 \usepackage[imgprefix={figures/apii_},command={Apii},extras={psychology}]{lecture-personal}
 
-\title{Grenzen der Wissenschaft}%
-\subtitle{Ausarbeitung für das ASQ \say{20\textsuperscript{th} century thinking about science}}
-\addAuthor{Florian Sihler}
-\date{\today}
-
+\title{Limitations of science}%
+\subtitle{The inexplicable and its development in science}
+\brief{\disablehyper 20\textsuperscript{th} century thinking about science, ASQ\\*{\sbfamily\typesetAuthor}, \DTMtoday}
+\addAuthor{Florian Sihler (florian.sihler@uni-ulm.de)}
+\date\today
+\subject{ASQ, Elaboration}
+\supervisor{Dr. Hans-Peter Eckle}
+\authority{\textcopyright~2021 Uni Ulm}
+\copyright{\href{https://creativecommons.org/licenses/by-nc-sa/2.0/}{CC BY-NC-SA 2.0} \faCreativeCommons\ \faCreativeCommonsBy\ \faCreativeCommonsNcEu\ \faCreativeCommonsSa}
 \usepackage{blindtext}
 
 \begin{document}
 
 \maketitle
+% \lecturedivider
+
+\cite{ajzen1991theory}
 
 \blinddocument
+
+\appendix
+
+\printbibliography
 
 \end{document}
