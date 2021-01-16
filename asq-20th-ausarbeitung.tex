@@ -1,4 +1,5 @@
-\documentclass[userip,ngerman,cpalette=Peach]{lecture-digital}
+\errorcontextlines 999999
+\documentclass[userip,ngerman,cpalette=Peach]{lecture-fancy-paper}
 \usepackage[%
     sopra-listings={cpalette,numinpar},%
     sopra-tables={cpalette},%
@@ -9,3 +10,30 @@
     lecture-links={patchurl}%
 ]{lithie-util}
 
+\solLoadLanguage{cpp}
+\LoadBoxStyle{limerence}
+
+\addbibresource{bibliography-collection/lithie.bib}
+
+\makeatletter
+\def\input@path{{source/}{figures/}}
+\makeatother
+
+\loadglsentries{glossary}
+
+\usepackage[imgprefix={figures/apii_},command={Apii},extras={psychology}]{lecture-personal}
+
+\title{Grenzen der Wissenschaft}%
+\subtitle{Ausarbeitung für das ASQ \say{20\textsuperscript{th} century thinking about science}}
+\addAuthor{Florian Sihler}
+\date{\today}
+
+\usepackage{blindtext}
+
+\begin{document}
+
+\maketitle
+
+\blinddocument
+
+\end{document}
