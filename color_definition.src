@@ -1,0 +1,6 @@
+\DefinePalette{Ausarbeitung}
+{Red,rot: RGB(166, 59, 63)}
+{Magenta,magenta: RGB(138, 49, 104)}
+{Lila,lilafarben: RGB(93, 45, 108)}
+{Blau,bläulich: RGB(40, 39, 112)}
+\UsePalette{Ausarbeitung}
