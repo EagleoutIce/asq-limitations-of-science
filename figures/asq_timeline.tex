@@ -18,7 +18,7 @@ path image/.style 2 args={
        }
        \def\leftend{3.9}
        \path (-.025,-.025) -- (0,0) coordinate(start) -- (\leftend,0);
-       \node[paletteA,below right,xshift=-0.25cm] at (start) {\textbf{BCE}};
+       \node[paletteA,below right,xshift=-0.25cm] at (start) {BCE};
        % right
        \foreach[count=\x] \year in {1400,1500,...,2000} {
             \draw[gray] ({(\x-1)*1.25+\leftend+0.65},0) coordinate (\year) -- ++(0,-0.1) coordinate (node-\year);
@@ -27,7 +27,7 @@ path image/.style 2 args={
         \coordinate (2100) at ({(8-1)*1.25+\leftend+0.65},0);
 
        \path (\leftend+0.5,0) -- ++(8.5,0) coordinate (end) -- ++(.025,.025);
-       \node[paletteA,below left,xshift=0.25cm] at(end) {\textbf{CE}};
+       \node[paletteA,below left,xshift=0.25cm] at(end) {CE};
 
        \makeatletter
        \def\Person{\@ifstar{\PersonDraw{-1}}{\PersonDraw{1}}}
