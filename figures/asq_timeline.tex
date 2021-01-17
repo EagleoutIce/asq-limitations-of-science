@@ -1,19 +1,88 @@
 \input{global-config.src}
 
+\tikzset{%
+path image/.style 2 args={
+   path picture={
+      \node at (path picture bounding box.center) {
+         \includegraphics[height=#2]{#1}
+      };
+   }
+}
+}
+
 \begin{document}
-    \begin{tikzpicture}[rounded corners=1.25pt]
+    \begin{tikzpicture}[rounded corners=1.25pt,every node/.append style={font=\tiny\sffamily},yearnode/.style={below=-2pt,gray}]
         % left
        \foreach[count=\x] \year in {500,400,300} {
-           \draw[gray] ({(\x-1)*1.5+0.55},0) coordinate (\year)-- ++(0,-0.1) node[below,font=\tiny\sffamily] {\year};
+           \draw[gray] ({(\x-1)*1.5+0.7},0) coordinate (\year)-- ++(0,-0.1) node[yearnode] {\year};
        }
-       \def\leftend{3.75}
+       \def\leftend{3.9}
+       \path (-.025,-.025) -- (0,0) coordinate(start) -- (\leftend,0);
+       \node[paletteA,below right,xshift=-0.25cm] at (start) {\textbf{BCE}};
+       % right
+       \foreach[count=\x] \year in {1400,1500,...,2000} {
+            \draw[gray] ({(\x-1)*1.25+\leftend+0.65},0) coordinate (\year) -- ++(0,-0.1) node[yearnode] {\year};
+        }
+        % buffer
+        \coordinate (2100) at ({(8-1)*1.25+\leftend+0.65},0);
+
+       \path (\leftend+0.5,0) -- ++(8.5,0) coordinate (end) -- ++(.025,.025);
+       \node[paletteA,below left,xshift=0.25cm] at(end) {\textbf{CE}};
+
+       \makeatletter
+       \def\Person{\@ifstar{\PersonDraw{-1}}{\PersonDraw{1}}}
+       % dir (internal name), name, subtext, [from-to], <image>, position of d
+       \def\PersonDraw#1(#2)#3#4[#5-#6]<#7>#8{%
+       \begin{pgfonlayer}{background}
+            \fill[paletteA,opacity=0.35] ([yshift=-2.5pt]#5) rectangle ([yshift=2.5pt]#6);
+            \path (#5) -- (#6) coordinate[pos=#8] (#2-mid);
+        \end{pgfonlayer}
+
+        \ifnum#1=1 \def\up{above right}\def\lo{below right} \def\off{0.6}%
+        \else \def\up{below right}\def\lo{above right} \def\off{0.75}\fi
+        \draw[very thick,paletteA] (#2-mid) -- ++(-0.33,#1*\off) -- ++(-1.65,0) coordinate (#2-end);
+        \node[paletteA,\up,outer sep=0pt,inner xsep=2pt] at(#2-end) {\textbf{#3}};
+        \node[gray,\lo,outer sep=0pt,inner xsep=2pt,scale=0.9] at(#2-end) {#4};
+
+        % image
+        \ifx!#7!\else
+            \draw[thick,paletteA,fill=white,path image={#7}{0.7cm}] ([xshift=-0.35cm]#2-end) circle [radius=0.35cm];
+        \fi
+       }
+
+       \def\UnimpPerson{\@ifstar{\UnimpPersonDraw{-1}}{\UnimpPersonDraw{1}}}
+       % dir (internal name), name, subtext, [from-to], position of d, height, width
+       \def\UnimpPersonDraw#1(#2)#3#4[#5-#6]#7#8:#9;{%
+       \begin{pgfonlayer}{background}
+            \fill[gray,opacity=0.35] ([yshift=-2.5pt]#5) rectangle ([yshift=2.5pt]#6);
+            \path (#5) -- (#6) coordinate[pos=#7] (#2-mid);
+        \end{pgfonlayer}
+
+        \ifnum#1=1 \def\up{above right}\def\lo{below right} %
+        \else \def\up{below right}\def\lo{above right} \fi
+        \draw[gray] (#2-mid) -- ++(-#9,#1*#8) -- ++(-1.65,0) coordinate (#2-end);
+        \node[gray,\up,outer sep=0pt,inner sep=2pt] at(#2-end) {\textbf{#3}};
+        \node[gray,\lo,outer sep=0pt,inner sep=2pt,scale=0.9] at(#2-end) {#4};
+       }
+
+       \Person(plato){Plato}{Dualism}[$(400)!0.28!(500)$-$(300)!0.48!(400)$]<plato.jpg>{1-(360-348)/(428-348)}
+       % \textasciitilde 428-348
+       \Person*(aristotle){Aristotle}{Metaphysics}[$(300)!0.84!(400)$-$(300)!0.22!(400)$]<aristotle.jpg>{1-(350-322)/(384-322)}
+       % \textasciitilde 384-322
+       \Person(galileo){Galileo Galilei}{Modern Physics}[$(1500)!0.64!(1600)$-$(1600)!0.42!(1700)$]<galileo.jpg>{(1609-1564)/(1642-1564)}
+       \Person(darwin){Charles Darwin}{Evolution Theory}[$(1800)!0.09!(1900)$-$(1800)!0.82!(1900)$]<darwin.jpg>{(1838-1809)/(1882-1809)}
+       \UnimpPerson*(einstein){Albert Einstein}{Theory of relativity}[$(1800)!0.79!(1900)$-$(1900)!0.55!(2000)$]{(1916-1879)/(1955-1879)}0.6:0.2;
+       \UnimpPerson*(turing){Alan Turing}{Turing Machine}[$(1900)!0.12!(2000)$-$(1900)!0.54!(2000)$]{(1936-1912)/(1954-1912)}1.2:0.4;
+       \UnimpPerson*(newton){Sir Isaac Newton}{Gravity}[$(1600)!0.42!(1700)$-$(1700)!0.26!(1800)$]{(1666-1642)/(1762-1642)}1.2:0.4;
+       \UnimpPerson*(copernicus){Nicolaus Copernicus}{Heliocentrism}[$(1400)!0.73!(1500)$-$(1500)!0.43!(1600)$]{(1514-1473)/(1543-1473)}0.6:0.2;
+       \UnimpPerson(hawking){Stephen Hawking}{Singularity}[$(1900)!0.42!(2000)$-$(2000)!0.18!(2100)$]{0.5}0.6:0.19; % (1514-1942)/(2018-1942)
+
+
+       % draw timeline final
        \draw[ultra thick,paletteA] (-.025,-.025) -- (0,0) -- (\leftend,0);
        % dots
        \draw[ultra thick,dash=on 0.05pt off 0.125cm-0.05pt phase 0pt,paletteA] (\leftend,0) -- (\leftend+0.5,0);
        % right
-       \foreach[count=\x] \year in {1400,1500,...,2000} {
-            \draw[gray] ({(\x-1)*1.25+\leftend+0.65},0) coordinate (\year) -- ++(0,-0.1) node[below,font=\tiny\sffamily] {\year};
-        }
-       \draw[ultra thick,paletteA] (\leftend+0.5,0) -- ++(8.25,0) -- ++(.025,.025);
+       \draw[ultra thick,paletteA] (\leftend+0.5,0) -- ++(8.5,0) -- ++(.025,.025);
     \end{tikzpicture}
 \end{document}
