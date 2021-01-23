@@ -43,8 +43,11 @@
 
 \usepackage{blindtext}
 
-\newcommand*\footurl[3][]{\footnote{\url{#2}\quad(\DTMdate{#3}#1)}}
+\newcommand*\footurl[3][]{\footnote{#1\url{#2}\quad(\DTMdate{#3})}}
 \def\UrlBreaks{\do\/\do-}
+\newcommand*\shortfooturl[4][]{\footnote{#1\href{#2}{#3}\quad(\DTMdate{#4})}}
+\def\formatshort#1#2{#1~\smash{\raisebox{0.25\baselineskip}{\resizebox{!}{0.25\baselineskip}{\pgfornament{14}}}}~#2}
+\newcommand*\bce[1]{#1~BCE} % keep consistent with bibrefs
 
 \begin{document}
 
@@ -53,24 +56,22 @@
 
 \begin{abstract}
     Since the dawn of mankind, humans are trying to understand how the world works.
-    These explanations, especially at the beginning, were dominated by a divine view of the world, which was supplemented by more and more knowledge over time.
+    These explanations, especially at the beginning, were dominated by a divine view of the world, which was supplemented by more and more science-based knowledge over time.
 
     This elaboration gives a brief overview of the history of the most important changes in the scientific worldview and their limitations.
     Furthermore, the meaning of those limitations will be discussed, using the relationship to a god of some of the important contributors.
 
-    It turns out that an (even imagined) limit in the perceivable worldview is not beneficial for scientific research.
+    It turns out that an (even imagined) limit in the perceivable worldview is not beneficial to scientific research. % and in no way can science ever fully replace religion
 \end{abstract}
 
-This work was created as an elaboration for the \uc{asq}: \say{\titleOfASQ} by \lectureGetRegister{supervisor} in the winter-semester 2020/2021 at the university of ulm. The \LaTeXe-Documentclass was custom made for this document.
+This work was created as an elaboration for the \uc{asq}: \say{\titleOfASQ} by \lectureGetRegister{supervisor} in the winter-semester 2020/2021 at the University of Ulm. The \LaTeXe-Documentclass was custom made for this document by the author.
 
 \input{1_introduction}
 \input{2_history}
 \input{3_theories}
 \input{4_consciousness}
 \input{5_conclusion}
-% galileo, evolution...
 
-% randolf menzel
 \appendix
 \defbibnote{generic@asq@prenote}{All links cited in the footnotes are not listed again. All created images (if not stated otherwise) have been created by the author (\typesetAuthor) using Ti\textit{k}Z.}
 \printbibliography[prenote=generic@asq@prenote]
