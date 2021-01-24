@@ -1,0 +1,12 @@
+\input{global-config.src}
+
+\begin{document}
+\begin{tikzpicture}
+    \node[thick,circle,gray,minimum width=0.66cm,inner sep=0pt,outer sep=0pt] (s) at (0,0) {S};
+    \node[thick,circle,gray,minimum width=0.66cm,inner sep=0pt,outer sep=0pt] (r) at (1.5,0) {R};
+    \draw[thick,gray] (s.north) -- (r.north) arc(90:-90:0.33cm) -- (s.south) arc (270:90:0.33cm) -- cycle;
+    \draw[lightgray,Kite-Kite] (s) -- (r);
+    % \draw[lightgray,Kite-Kite] (s) to[bend left=16] (r);
+    % \draw[lightgray,Kite-Kite] (s) to[bend right=16] (r);
+\end{tikzpicture}
+\end{document}

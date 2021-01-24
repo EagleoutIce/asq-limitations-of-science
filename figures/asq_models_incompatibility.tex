@@ -1,0 +1,9 @@
+\input{global-config.src}
+
+\begin{document}
+\begin{tikzpicture}
+    \node[thick,gray,circle,draw,minimum width=0.66cm,inner sep=0pt] (s) at (0,0) {S};
+    \node[thick,gray,circle,draw,minimum width=0.66cm,inner sep=0pt] (r) at (1.5,0) {R};
+    \path (s) -- (r) node[pos=0.5,scale=1.25,gray] {\faFlash};
+\end{tikzpicture}
+\end{document}

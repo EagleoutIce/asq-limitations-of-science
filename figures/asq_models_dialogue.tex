@@ -1,0 +1,20 @@
+\input{global-config.src}
+
+\begin{document}
+\begin{tikzpicture}
+    \node[thick,gray,circle,draw,minimum width=0.66cm,inner sep=0pt] (s) at (0,0) {S};
+    \node[thick,gray,circle,draw,minimum width=0.66cm,inner sep=0pt] (r) at (1.5,0) {R};
+    \path (s) -- (r) coordinate[pos=0.5] (mid);
+
+    \begin{scope}
+        \clip (mid)++(88:0.4cm)++(0.15cm,0) arc (88:360:0.4cm);
+        \fill[pattern color=lightgray,pattern=north west lines] (mid)++(92:0.4cm)++(-0.15cm,0) arc (92:480:0.4cm);
+    \end{scope}
+
+    \draw[lightgray] (mid)++(88:0.4cm)++(0.15cm,0) arc (88:272:0.4cm);
+    \draw[lightgray] (mid)++(92:0.4cm)++(-0.15cm,0) arc (92:-92:0.4cm);
+
+    \draw[-Kite,gray] (s) to[bend left =20] (r);
+    \draw[Kite-,gray] (s) to[bend right=20] (r);
+\end{tikzpicture}
+\end{document}
