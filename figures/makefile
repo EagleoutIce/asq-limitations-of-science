@@ -23,7 +23,6 @@ all:
 	pdflatex -shell-escape -interaction=nonstopmode -jobname $(basename $(shell basename $@)) \\def\\lithieprofile{default}\\input{$<} >> ./LOG_COMPILE.log 2>&1
 	@$(call $(CLEANTARGET))
 	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dNOPAUSE -dQUIET -dBATCH -dAutoRotatePages=/None -sOutputFile=$(basename $(shell basename $@))-compressed.pdf $@ &
-	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dNOPAUSE -dQUIET -dBATCH -dAutoRotatePages=/None -sOutputFile=$(basename $(shell basename $@))-print-compressed.pdf $(basename $(shell basename $@))-print.pdf &
 
 clean:
 	@$(call $(CLEANTARGET))

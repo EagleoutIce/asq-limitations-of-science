@@ -5,6 +5,12 @@
     \node[thick,gray,circle,draw,minimum width=0.66cm,inner sep=0pt] (s) at (0,0) {S};
     \node[thick,gray,circle,draw,minimum width=0.66cm,inner sep=0pt] (r) at (1.5,0) {R};
     \path (s) -- (r) coordinate[pos=0.5] (mid);
-    \draw[thick,gray] (mid|-0,0.33) -- (mid|-0,-0.33);
+
+
+    \draw[lightgray] (mid)++(88:0.4cm)++(0.405cm,0) arc (88:272:0.4cm);
+    \draw[lightgray] (mid)++(92:0.4cm)++(-0.405cm,0) arc (92:-92:0.4cm);
+
+    \draw[-Kite,gray] (s) to[loop right,looseness=5.5] (s);
+    \draw[Kite-,gray] (r) to[loop left ,looseness=5.5] (r);
 \end{tikzpicture}
 \end{document}
