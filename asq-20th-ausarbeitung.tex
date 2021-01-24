@@ -6,7 +6,7 @@
     sopra-tables={cpalette},%
     sopra-models,%
     lecture,%
-    lecture-bibliography={style=numeric},%
+    lecture-bibliography={biber,style=numeric},%
     lithie-boxes={germanenv,autostyle},%
     lithie-task-boxes={cpalette},%
     lecture-links={patchurl}%
@@ -46,8 +46,14 @@
 \newcommand*\footurl[3][]{\footnote{#1\url{#2}\quad(\DTMdate{#3})}}
 \def\UrlBreaks{\do\/\do-}
 \newcommand*\shortfooturl[4][]{\footnote{#1\href{#2}{#3}\quad(\DTMdate{#4})}}
+\newcommand*\shortfootarchiveurl[4][]{\footnote{#1\href{#2}{#3}\quad(archived, \DTMdate{#4})}}
+% \;\smash{\raisebox{0.3\baselineskip}{\scalebox{0.35}{\faUniversity}}}
+
+
 \def\formatshort#1#2{#1~\smash{\raisebox{0.25\baselineskip}{\resizebox{!}{0.25\baselineskip}{\pgfornament{14}}}}~#2}
+
 \newcommand*\bce[1]{#1~BCE} % keep consistent with bibrefs
+\SetBlockThreshold{0}
 
 \begin{document}
 
@@ -61,7 +67,8 @@
     This elaboration gives a brief overview of the history of the most important changes in the scientific worldview and their limitations.
     Furthermore, the meaning of those limitations will be discussed, using the relationship to a god of some of the important contributors.
 
-    It turns out that an (even imagined) limit in the perceivable worldview is not beneficial to scientific research. % and in no way can science ever fully replace religion
+    It turns out that an (even imagined) limit in the perceivable worldview is not beneficial to scientific research. In addition, the integration of religion into science even seems to be beneficial.
+    % and in no way can science ever fully replace religion
 \end{abstract}
 
 This work was created as an elaboration for the \uc{asq}: \say{\titleOfASQ} by \lectureGetRegister{supervisor} in the winter-semester 2020/2021 at the University of Ulm. The \LaTeXe-Documentclass was custom made for this document by the author.
