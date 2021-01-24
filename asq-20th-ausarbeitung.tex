@@ -48,11 +48,21 @@
 \newcommand*\shortfootarchiveurl[4][]{\footnote{#1\href{#2}{#3}\quad(archived, \DTMdate{#4})}}
 % \;\smash{\raisebox{0.3\baselineskip}{\scalebox{0.35}{\faUniversity}}}
 
+\usepackage{pbox}
+\def\flocomment#1{\fcolorbox{paletteA}{shadeA}{\pbox{\linewidth}{\sffamily\textbf{\paletteA{Flo:}}~#1}}}
 
 \def\formatshort#1#2{#1~\smash{\raisebox{0.25\baselineskip}{\resizebox{!}{0.25\baselineskip}{\pgfornament{14}}}}~#2}
 
 \newcommand*\bce[1]{#1~BCE} % keep consistent with bibrefs
 \SetBlockThreshold{0}
+
+\usepackage{newunicodechar}
+\newunicodechar{Ṭ}{\d{T}}
+\newunicodechar{ṭ}{\d{t}}
+\newunicodechar{ṣ}{\d{s}}
+\newunicodechar{Ḥ}{\d{H}}
+\newunicodechar{ī}{\=\i}
+\newunicodechar{ā}{\=a}
 
 \begin{document}
 
