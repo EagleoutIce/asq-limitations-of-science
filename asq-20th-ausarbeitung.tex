@@ -26,7 +26,7 @@
 \makeatother
 
 \loadglsentries{glossary}
-
+\usepackage{lipsum}
 \usepackage[imgprefix={figures/asq_},command={Asq}]{lecture-personal}
 
 \title{Limitations of science}%
@@ -64,6 +64,9 @@
 \newunicodechar{ī}{\=\i}
 \newunicodechar{ā}{\=a}
 
+\renewcommand*{\bibfont}{\normalfont\small}
+
+
 \begin{document}
 
 \maketitle
@@ -86,7 +89,8 @@ This work was created as an elaboration for the \uc{asq}: \say{\titleOfASQ} by \
 \input{2_history}
 \input{3_theories}
 \input{4_consciousness}
-\input{5_conclusion}
+\input{5_discussion}
+\input{6_conclusion}
 
 \appendix
 \defbibnote{generic@asq@prenote}{All links cited in the footnotes are not listed again. All created images (if not stated otherwise) have been created by the author (\typesetAuthor) using Ti\textit{k}Z.}

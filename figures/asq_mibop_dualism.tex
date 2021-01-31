@@ -1,0 +1,12 @@
+\input{global-config.src}
+
+\begin{document}
+\begin{tikzpicture}[gray]
+    \draw (0,0) circle [radius=.5];
+    \draw (0,-.5) -- (0,.5);
+    \node[scale=0.9,inner sep=0pt,outer sep=0pt] at (-.25,0) {B};
+    \node[scale=0.9,inner sep=0pt,outer sep=0pt] at ( .25,0) {M};
+    \pgfresetboundingbox
+    \path[use as bounding box] (0,0) circle [radius=.5cm];
+\end{tikzpicture}
+\end{document}

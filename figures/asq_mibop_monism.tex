@@ -1,0 +1,14 @@
+\input{global-config.src}
+
+\begin{document}%
+\begin{tikzpicture}[gray]
+    \draw (150:.5cm) arc (150:30:.5cm);
+    \draw[densely dashed] (30:.5cm) arc (30:-210:.5cm);
+    \draw (150:.5cm) -- (0,0) -- (0,-.5);
+    \draw (30:.5cm) -- (0,0);
+    \node[scale=0.9,inner sep=0pt,outer sep=0pt] at (-.25,-0.125) {B};
+    \node[scale=0.9,inner sep=0pt,outer sep=0pt] at ( .25,-0.125) {M};
+    \pgfresetboundingbox
+    \path[use as bounding box] (0,0) circle [radius=.5cm];
+\end{tikzpicture}%
+\end{document}
