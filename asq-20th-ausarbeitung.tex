@@ -1,6 +1,7 @@
 \errorcontextlines 999999
 \documentclass[userip,english,cpalette=Crimson]{lecture-fancy-paper}
 \PassOptionsToPackage{threshold=1}{csquotes}
+\PassOptionsToPackage{style=mmddyyyy,yearmonthsep={/},dayyearsep={/},monthdaysep={/}}{datetime2}
 \usepackage[%
     sopra-listings={cpalette,numinpar},%
     sopra-tables={cpalette},%
@@ -14,8 +15,6 @@
 
 \input{color_definition.src}
 \pagecolor{white!97!lightgray!99!paletteA}
-
-\usepackage[style=mmddyyyy,yearmonthsep={/},dayyearsep={/},monthdaysep={/}]{datetime2}
 
 \LoadBoxStyle{limerence}
 

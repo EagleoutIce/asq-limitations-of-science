@@ -1,26 +1,27 @@
 \input{global-config.src}
-
+\colorlet{bgray}{gray!35!white}
+\def\TipScale{.52}
 \begin{document}
-\begin{tikzpicture}[block/.append style={fill=white,text width=2.5cm,minimum height=1.85em,font=\footnotesize\sffamily}]
+\begin{tikzpicture}[block/.append style={fill=white,text width=2.5cm,minimum height=1.85em,font=\footnotesize\sffamily},bb/.style={block,fill=bgray,draw=bgray},t/.style={bgray,line width=2pt,rounded corners=1pt}]
 
   \node[block,text=paletteA,draw=gray,text width=3.25cm] (s) at(0,0) {\textbf{Stimulus event}};
-  \node[block,below right,yshift=-0.35cm] (p) at(s.south west) {Perception};
-  \node[block,below=0.25cm] (i) at(p.south) {Initial encoding};
-  \node[block,below=0.25cm] (f) at(i.south) {Further inferences};
+  \node[bb,below right,yshift=-0.35cm] (p) at(s.south west) {Perception};
+  \node[bb,below=0.25cm] (i) at(p.south) {Initial encoding};
+  \node[bb,below=0.25cm] (f) at(i.south) {Further inferences};
   \node[block,text=paletteA,draw=gray,below right,yshift=-0.35cm,text width=3.25cm] (b) at(f.south west) {\textbf{Behavioral response}};
 
-  \path (i.east) -- (f.east) node[pos=0.5,block,text width=,align=center,text width=1.6cm,right=0.35cm] (m) {Organized\\knowledge};
+  \path (i.east) -- (f.east) node[pos=0.5,bb,text width=,align=center,text width=1.6cm,right=0.35cm] (m) {Organized\\knowledge};
 
   % double arrows
-  \draw[-Kite,rounded corners=1pt] (i.8) -| (m.north);
-  \draw[Kite-] (i.-5) -- (i.-5-|m.west);
-  \draw[Kite-,rounded corners=1pt] (f.-8) -| (m.south);
-  \draw[-Kite] (f.5) -- (f.5-|m.west);
+  \draw[-{Kite[scale=\TipScale]},t] (i.10) -| (m.north);
+  \draw[{Kite[scale=\TipScale]}-,t] (i.-10) -- (i.-10-|m.west);
+  \draw[{Kite[scale=\TipScale]}-,t] (f.-10) -| (m.south);
+  \draw[-{Kite[scale=\TipScale]},t] (f.10) -- (f.10-|m.west);
 
   \begin{pgfonlayer}{background}
     \draw[densely dashed,gray,rounded corners=2pt] ([yshift=-0.15cm,xshift=-0.15cm]f.south west) rectangle ([yshift=0.15cm,xshift=0.15cm]p.north east-|m.east);
 
-    \draw[-Kite] (s.south-|p.north) -- (b.north-|p.north);
+    \draw[-{Kite[scale=\TipScale]},t,gray] (s.south-|p.north) -- (b.north-|p.north);
   \end{pgfonlayer}
 \end{tikzpicture}
 \end{document}
