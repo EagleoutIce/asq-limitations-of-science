@@ -2,7 +2,7 @@
 \usepackage{booktabs,array,xstring,lecture-shortcuts}
 \usepackage{lecture-personal-extra-item-automata}
 
-\input{../color_definition.src}
+\input{color_definition.src}
 
 % TODO: share this setting with a library so they are the same for external and internal graphics
 \colorlet{descgray}{lightgray!37!white}

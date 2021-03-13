@@ -19,13 +19,12 @@ all:
 	@$(MAKE) --no-print-directory clean
 
 %.pdf: %.tex global-config.src
-	pdflatex -shell-escape -interaction=nonstopmode -draftmode -jobname $(basename $(shell basename $@)) \\def\\lithieprofile{default}\\input{$<} > ./LOG_COMPILE.log 2>&1
-	pdflatex -shell-escape -interaction=nonstopmode -jobname $(basename $(shell basename $@)) \\def\\lithieprofile{default}\\input{$<} >> ./LOG_COMPILE.log 2>&1
+	sltx -q compile -rimage-noprint-pdflatex.recipe $<
 	@$(call $(CLEANTARGET))
-	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dNOPAUSE -dQUIET -dBATCH -dAutoRotatePages=/None -sOutputFile=$(basename $(shell basename $@))-compressed.pdf $@ &
 
 clean:
 	@$(call $(CLEANTARGET))
+	sltx cls
 
 cleanpdf:
 	rm -f *.pdf
