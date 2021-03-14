@@ -42,6 +42,8 @@
 \def\UrlBreaks{\do\/\do-}
 \newcommand*\shortfooturl[4][]{\footnote{#1\href{#2}{#3}\quad(\DTMdate{#4})}}
 \newcommand*\shortfootarchiveurl[4][]{\footnote{#1\href{#2}{#3}\quad(archived, \DTMdate{#4})}}
+\newcommand*\footrefmark[1]{\textsuperscript{\disablehyper\hyperref[#1]{\thinspace\textcolor{gray}{see} \ref*{#1}}}}
+
 % \;\smash{\raisebox{0.3\baselineskip}{\scalebox{0.35}{\faUniversity}}}
 
 \usepackage{pbox}
