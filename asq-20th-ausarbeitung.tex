@@ -50,7 +50,7 @@
 \usepackage{pbox}
 \def\flocomment#1{\fcolorbox{paletteA}{shadeA}{\pbox{\linewidth}{\sffamily\textbf{\paletteA{Flo:}}~#1}}}
 
-\def\formatshort#1#2{#1~\smash{\raisebox{0.25\baselineskip}{\resizebox{!}{0.25\baselineskip}{\pgfornament{14}}}}~#2}
+\def\formatshort#1#2{#1~\smash{\raisebox{.25\baselineskip}{\resizebox{!}{.25\baselineskip}{\pgfornament{14}}}}~#2}
 
 \newcommand*\bce[1]{#1~BCE} % keep consistent with bibrefs
 \SetBlockThreshold{0}
@@ -65,6 +65,7 @@
 
 \renewcommand*{\bibfont}{\normalfont\small}
 
+\newcommand*\quoteshorten[1][$\mathellipsis$]{\textcolor{gray}{[}#1\textcolor{gray}{]}}
 
 \begin{document}
 
