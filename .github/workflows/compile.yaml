@@ -24,7 +24,7 @@ jobs:
         echo "tx-default" | sltx docker
     - name: Compile the Documents
       run: |
-        cd figures && make
+        cd figures && make && cd ..
         sltx compile --root --profile "tx-default" "asq-20th-ausarbeitung.tex"
     - name: Commit
       run: |
