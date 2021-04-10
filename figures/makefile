@@ -19,7 +19,7 @@ all:
 	@$(MAKE) --no-print-directory clean
 
 %.pdf: %.tex global-config.src
-	sltx -q compile -rimage-noprint-pdflatex.recipe $<
+	sltx -q compile --root -rimage-noprint-pdflatex.recipe $<
 	@$(call $(CLEANTARGET))
 
 clean:
