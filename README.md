@@ -3,4 +3,4 @@
 # ASQ -- Elaboration
 
 LaTeX-Sources of my elaboration 'Limitations of Science'.
-As i did not want to re-publish four of the images i used in the timeline, they are not included in this repository (the sources should build anyway).
+As I did not want to re-publish four of the images I used in the timeline, they are not included in this repository (the sources should build anyway).
