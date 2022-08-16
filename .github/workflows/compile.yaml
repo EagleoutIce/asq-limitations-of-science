@@ -27,12 +27,12 @@ jobs:
       run: |
         cd figures && make && cd ..
         sltx compile --root --profile "tx-default" "asq-20th-ausarbeitung.tex"
-        pdftoppm -png -f 1 -l 1 ./asq-20th-ausarbeitung.pdf preview
+        pdftoppm -png -f 1 -l 2 ./asq-20th-ausarbeitung.pdf preview
     - name: Commit
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add -f "asq-20th-ausarbeitung.pdf" "preview-1.png"
+        git add -f "asq-20th-ausarbeitung.pdf" "preview-1.png" "preview-2.png"
         git commit -m "Newly compiled data"
     - name: Push changes
       uses: ad-m/github-push-action@master
