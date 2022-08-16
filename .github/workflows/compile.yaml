@@ -22,7 +22,7 @@ jobs:
       run: |
         sudo apt install poppler-utils
         pip install sltx
-        echo "tx-default" | sltx docker
+        echo "tx-full" | sltx docker
     - name: Compile the Documents
       run: |
         cd figures && make && cd ..
