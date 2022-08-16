@@ -26,7 +26,7 @@ jobs:
     - name: Compile the Documents
       run: |
         cd figures && make && cd ..
-        sltx compile --root --profile "tx-default" "asq-20th-ausarbeitung.tex"
+        sltx compile --root --profile "tx-full" "asq-20th-ausarbeitung.tex"
         pdftoppm -png -f 1 -l 2 ./asq-20th-ausarbeitung.pdf preview
     - name: Commit
       run: |
